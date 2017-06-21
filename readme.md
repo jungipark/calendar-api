@@ -378,80 +378,10 @@ calendar.jungi.me/api/v1/calendar/month?year_month=2017-06
 <br><br>
 
 
-### **특정 날짜 일정 조회 API**
-
-#### URI : /api/v1/`calendar/date`
-
-#### Header : `token_required`
-
-#### Http Method : `GET`
-
-#### **Parameters**
-
-
-**Request**
-
-| Name	| Description | Required | Type |
-| --- | --- | --- | --- |
-| date | 조회할 연도, 월, 일 | O | query string | 
-```
-calendar.jungi.me/api/v1/calendar/month?year_month=2017-06-20
-```
-
-**Response**
-
-| Name	| Description | Required | Type |
-| --- | --- | --- | --- |
-| event_list | 결과리스트 | O | JSONArray |
-| - birthday | 생일여부(null 생일 아님, "1" 생일) | O | string or null |
-| - created | 일정 등록 시간 | O | string |
-| - updated | 일정 수정 시간 | O | string or null|
-| - sdate | 일정 시작 시간 | O | string |
-| - edate | 일정 종료 시간 | O | string |
-| - useremail | 등록한 useremail | O | string |
-| - subject | 일정 제목 | O | string |
-| - id | 일정 event id| O | int |
-
-
-```json
-// 성공시
-{
-    [
-        {
-            "birthday": null,
-            "created": "Mon, 19 Jun 2017 19:55:04 GMT",
-            "edate": "Tue, 20 Jun 2017 12:00:00 GMT",
-            "email": "park@jungi.me",
-            "group": "2",
-            "id": 25,
-            "sdate": "Tue, 20 Jun 2017 09:00:00 GMT",
-            "subject": "테스트 일정",
-            "updated": null
-        },
-        {
-            "birthday": null,
-            "created": "Mon, 19 Jun 2017 20:13:47 GMT",
-            "edate": "Tue, 20 Jun 2017 21:00:00 GMT",
-            "email": "park@jungi.me",
-            "group": null,
-            "id": 26,
-            "sdate": "Tue, 20 Jun 2017 20:00:00 GMT",
-            "subject": "놀이동산",
-            "updated": null
-        }
-    ],
-    "meta": {
-        "code": 20000,
-        "message": "SUCCESS"
-    }
-}
-```
-<br><br>
-
 
 ### **일정 등록 API**
 
-#### URI : /api/v1/`calendar/event/`
+#### URI : /api/v1/`calendar/event`
 
 #### Header : `token_required`
 
@@ -496,7 +426,7 @@ calendar.jungi.me/api/v1/calendar/month?year_month=2017-06-20
 
 ### **일정 수정 API**
 
-#### URI : /api/v1/`calendar/event/`
+#### URI : /api/v1/`calendar/event`
 
 #### Header : `token_required`
 
@@ -543,7 +473,7 @@ calendar.jungi.me/api/v1/calendar/month?year_month=2017-06-20
 
 ### **일정 삭제 API**
 
-#### URI : /api/v1/`calendar/event/`
+#### URI : /api/v1/`calendar/event`
 
 #### Header : `token_required`
 
@@ -794,7 +724,7 @@ http://localhost:5000/api/v1/calendar/search?search_word=테스트
 
 ### **생일 등록 API**
 
-#### URI : /api/v1/`calendar/birthday/`
+#### URI : /api/v1/`calendar/birthday`
 
 #### Header : `token_required`
 
@@ -838,7 +768,7 @@ http://localhost:5000/api/v1/calendar/search?search_word=테스트
 
 ### **그룹 추가 API**
 
-#### URI : /api/v1/`/group/`
+#### URI : /api/v1/`group/`
 
 #### Header : `token_required`
 
@@ -1012,7 +942,7 @@ http://localhost:5000/api/v1/calendar/search?search_word=테스트
 
 ### **전체 그룹(다른 유저가 생성한 그룹도 보임) 조회 API**
 
-#### URI : /api/v1/`group/list/`
+#### URI : /api/v1/`group/list`
 
 #### Header : `token_required`
 
@@ -1061,7 +991,7 @@ http://localhost:5000/api/v1/calendar/search?search_word=테스트
 
 ### **특정 그룹에 일정 추가 API**
 
-#### URI : /api/v1/`group/event/`
+#### URI : /api/v1/`group/event`
 
 #### Header : `token_required`
 
